@@ -74,4 +74,16 @@ public class BookService {
         return responseList;
     }
 
+    public Book getBookDetails(Integer bookId) throws Exception {
+
+        Optional<Book> optionalBook = bookRepository.findById(bookId);
+
+        if(!optionalBook.isPresent()) {
+            throw new Exception("Invalid book-Id provided");
+        }
+
+        Book book = optionalBook.get();
+
+        return book;
+    }
 }

@@ -1,6 +1,7 @@
 package com.example.librarymanagement.Controllers;
 
 import com.example.librarymanagement.Enums.Genre;
+import com.example.librarymanagement.Models.Book;
 import com.example.librarymanagement.RequestDto.AddBookRequestDto;
 import com.example.librarymanagement.ResponseDto.BookResponseDto;
 import com.example.librarymanagement.Services.BookService;
@@ -37,4 +38,16 @@ public class BookController {
         return new ResponseEntity(responseDtoList,HttpStatus.OK);
     }
 
+    @GetMapping("/getBookDetails")
+    public Book getBookDetails(@PathVariable Integer bookId) throws Exception {
+
+//        try {
+//            Book book = bookService.getBookDetails(bookId);
+//            return new ResponseEntity(book, HttpStatus.OK);
+//        } catch (Exception e) {
+//            return new ResponseEntity(e.getMessage(),HttpStatus.BAD_REQUEST);
+//        }
+
+        return bookService.getBookDetails(bookId);
+    }
 }
